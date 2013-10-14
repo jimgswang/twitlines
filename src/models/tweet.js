@@ -9,4 +9,4 @@ var tweetSchema = new Schema({
     coordinates : String
 });
 
-mongoose.model('Tweet', tweetSchema);
+module.exports = mongoose.model('Tweet', tweetSchema);

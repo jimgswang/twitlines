@@ -5,7 +5,8 @@ var request = require('request'),
     fs = require('fs'),
     settings = require('../settings').dev,
     cp = require('child_process'),
-    child = cp.fork(__dirname + '/child.js');
+    child = cp.fork(__dirname + '/child.js'),
+    teams = require('../data/teams.json');
 
 var ntwitter = require('ntwitter');
 
@@ -32,11 +33,17 @@ var oauth = {
 var sendRequest = function() {
     var body = "track=twitter";
     var decoder = new StringDecoder('utf-8');
+    var teamnames = teams.map(function(item) {
+        return '#' + item.name;
+    });
 
+    var filters = teamnames.join(',');
+
+    console.log(filters);
     request.post(
             { 
                 uri : endpoint,
-                form: { track: 'Eagles' },
+                form: { track: 'Seahawks'},
                 oauth: oauth
             },
             function (err, res, body) {

@@ -10,8 +10,7 @@ mongoose.connect('mongodb://localhost/dev');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error : '));
 
-require('./../src/models/game.js');
-var Game = mongoose.model('Game');
+var Game = require('./../src/models/game.js');
 
 var url = 'www.covers.com/odds/football/nfl-spreads.aspx';
 var scrapeJob  = new nodeio.Job({ jsdom: true } , {

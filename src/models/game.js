@@ -12,4 +12,4 @@ gameSchema.methods.addOdds = function(newOdds) {
     this.odds.push(newOdds);
 }
 
-mongoose.model('Game', gameSchema);
+module.exports = mongoose.model('Game', gameSchema);
