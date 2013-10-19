@@ -8,17 +8,7 @@ var request = require('request'),
     child = cp.fork(__dirname + '/child.js'),
     teams = require('../data/teams.json');
 
-var ntwitter = require('ntwitter');
-
 var endpoint = 'https://stream.twitter.com/1.1/statuses/filter.json';
-var endpoint2 = 'http://54.218.117.28:8080/';
-
-var twit = new ntwitter( {
-    consumer_secret : settings.twitterConsumerSecret,
-    consumer_key : settings.twitterConsumerKey,
-    access_token_key : settings.twitterAccessToken,
-    access_token_secret : settings.twitterAccessTokenSecret
-});
 
 var oauth = {
     consumer_key : settings.twitterConsumerKey,
@@ -65,17 +55,3 @@ var sendRequest = function() {
             });
 };
 sendRequest();
-
-
-
-
-
-/*
-twit.verifyCredentials(function(err, data) {
-    console.log("success?");
-}).stream('statuses/filter' , {track : 'twitter' }, function(stream) {
-    stream.on('data', function(data) {
-        console.log(data.text);
-    });
-});
-*/
