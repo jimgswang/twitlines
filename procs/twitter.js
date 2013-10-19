@@ -43,7 +43,7 @@ var sendRequest = function() {
     request.post(
             { 
                 uri : endpoint,
-                form: { track: 'Seahawks'},
+                form: { track: filters},
                 oauth: oauth
             },
             function (err, res, body) {

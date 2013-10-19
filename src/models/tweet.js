@@ -6,7 +6,8 @@ var tweetSchema = new Schema({
     text : String,
     rating : Number,
     location : String,
-    coordinates : String
+    coordinates : String,
+    date : { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Tweet', tweetSchema);
