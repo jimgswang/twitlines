@@ -30,6 +30,7 @@ process.on('message', function(tweet) {
             var nTweet = new Tweet({ team: tweetedTeam, text : tweet.text, location : tweet.user.location, coordinates : tweet.coordinates, date : tweet.created_at, rating: score });
 
             nTweet.save();
+            console.log('tweet saved : ', tweetedTeam);
         }
     }
 });
