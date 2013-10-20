@@ -21,7 +21,6 @@ var oauth = {
 
 
 var sendRequest = function() {
-    var body = "track=twitter";
     var decoder = new StringDecoder('utf-8');
     var teamnames = teams.map(function(item) {
         return '#' + item.name;
